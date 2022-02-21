@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.flowera.FlowerViewModel" />
+        <variable
+            name="chooseFragment"
+            type="com.example.flowera.ChooseFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/layout_margin">
+
+        <CheckBox
+            android:id="@+id/tulip_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/checkbox_margin"
+            android:checked="@{viewModel.isTulip}"
+            android:onCheckedChanged="@{(button, checked) -> viewModel.tulipAvailable(checked)}"/>
+
+        <TextView
+            android:id="@+id/tulip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/checkbox_margin"
+            android:text="@string/tulip"
+            app:layout_constraintBottom_toBottomOf="@+id/tulip_check"
+            app:layout_constraintStart_toEndOf="@id/tulip_check"
+            app:layout_constraintTop_toTopOf="@id/tulip_check"
+            />
+
+        <View
+            android:id="@+id/tulip_barrier"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/checkbox_margin"
+            android:background="@color/design_default_color_primary"
+            app:layout_constraintTop_toBottomOf="@id/tulip" />
+
+        <CheckBox
+            android:id="@+id/rose_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tulip_barrier"
+            android:layout_marginStart="@dimen/checkbox_margin"
+            android:checked="@{viewModel.isRose}"
+            android:onCheckedChanged="@{(button, checked) -> viewModel.roseAvailable(checked)}"
+            />
+
+        <TextView
+            android:id="@+id/rose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/checkbox_margin"
+            android:text="@string/rose"
+            app:layout_constraintBottom_toBottomOf="@+id/rose_check"
+            app:layout_constraintStart_toEndOf="@id/rose_check"
+            app:layout_constraintTop_toTopOf="@id/rose_check" />
+
+        <View
+            android:id="@+id/rose_barrier"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/checkbox_margin"
+            android:background="@color/design_default_color_primary"
+            app:layout_constraintTop_toBottomOf="@id/rose" />
+
+        <CheckBox
+            android:id="@+id/daisy_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rose_barrier"
+            android:layout_marginStart="@dimen/checkbox_margin"
+            android:checked="@{viewModel.isDaisy}"
+            android:onCheckedChanged="@{(button, checked) -> viewModel.daisyAvailable(checked)}"/>
+
+        <TextView
+            android:id="@+id/daisy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/checkbox_margin"
+            android:text="@string/daisy"
+            app:layout_constraintBottom_toBottomOf="@+id/daisy_check"
+            app:layout_constraintStart_toEndOf="@id/daisy_check"
+            app:layout_constraintTop_toTopOf="@id/daisy_check" />
+
+        <View
+            android:id="@+id/daisy_barrier"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/checkbox_margin"
+            android:background="@color/design_default_color_primary"
+            app:layout_constraintTop_toBottomOf="@id/daisy" />
+
+        <CheckBox
+            android:id="@+id/lavender_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/daisy_barrier"
+            android:layout_marginStart="@dimen/checkbox_margin"
+            android:checked="@{viewModel.isLavender}"
+            android:onCheckedChanged="@{(button, checked) -> viewModel.isLavenderAvailable(checked)}"
+            />
+
+        <TextView
+            android:id="@+id/lavender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/checkbox_margin"
+            android:text="@string/lavender"
+            app:layout_constraintBottom_toBottomOf="@+id/lavender_check"
+            app:layout_constraintStart_toEndOf="@id/lavender_check"
+            app:layout_constraintTop_toTopOf="@id/lavender_check" />
+
+        <View
+            android:id="@+id/lavender_barrier"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/checkbox_margin"
+            android:background="@color/design_default_color_primary"
+            app:layout_constraintTop_toBottomOf="@id/lavender" />
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin"
+            android:layout_marginEnd="@dimen/checkbox_margin"
+            android:layout_marginBottom="@dimen/checkbox_margin"
+            android:text="@string/cancel"
+            android:textAllCaps="true"
+            android:onClick="@{() -> chooseFragment.cancelOrder()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/next_button"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin"
+            android:layout_marginStart="@dimen/checkbox_margin"
+            android:layout_marginBottom="@dimen/checkbox_margin"
+            android:enabled="@{viewModel.isRose() || viewModel.isTulip() || viewModel.isDaisy() || viewModel.isLavender()}"
+            android:text="@string/next"
+            android:textAllCaps="true"
+            android:onClick="@{() -> chooseFragment.nextKey()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cancel_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

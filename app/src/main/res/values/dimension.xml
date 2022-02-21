@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="checkbox_margin">8dp</dimen>
+    <dimen name="check_font_size">10sp</dimen>
+    <dimen name="check_flower_top_margin">14dp</dimen>
+    <dimen name="layout_margin">8dp</dimen>
+    <dimen name="layout_margin_top">32dp</dimen>
+    <dimen name="table_row_padding">4dp</dimen>
+</resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.flowera.FlowerViewModel" />
+        <variable
+            name="flowerCountFragment"
+            type="com.example.flowera.FlowerCountFragment" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{@string/number_of_flowers(viewModel.currentName)}"
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:id="@+id/decrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/decrement"
+            app:layout_constraintEnd_toStartOf="@id/count"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            android:layout_margin="@dimen/layout_margin"
+            android:textSize="25sp"
+            android:layout_marginTop="@dimen/checkbox_margin"
+            android:onClick="@{() -> viewModel.decrement()}"/>
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/decrement"
+            app:layout_constraintEnd_toStartOf="@id/increment"
+            app:layout_constraintTop_toTopOf="@id/increment"
+            app:layout_constraintBottom_toBottomOf="@id/increment"
+            android:layout_margin="@dimen/layout_margin"
+            android:text="@{viewModel.currentCount.toString()}"
+            android:textSize="25sp"
+            android:gravity="center"
+            />
+
+        <Button
+            android:id="@+id/increment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/increment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/count"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            android:layout_margin="@dimen/layout_margin"
+            app:layout_goneMarginTop="@dimen/layout_margin_top"
+            android:textSize="25sp"
+            android:onClick="@{() -> viewModel.increment()}"
+            android:layout_marginTop="@dimen/checkbox_margin"/>
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/checkbox_margin"
+            android:layout_marginBottom="@dimen/checkbox_margin"
+            android:text="@string/cancel"
+            android:textAllCaps="true"
+            android:onClick="@{() -> flowerCountFragment.cancelOrder()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/next_button"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/checkbox_margin"
+            android:layout_marginBottom="@dimen/checkbox_margin"
+            android:enabled="@{viewModel.isRose() || viewModel.isTulip() || viewModel.isDaisy() || viewModel.isLavender()}"
+            android:text="@string/next"
+            android:textAllCaps="true"
+            android:onClick="@{() -> flowerCountFragment.nextClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cancel_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

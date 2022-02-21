@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Flowera</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_flowers">Select the flowers required</string>
+    <string name="tulip">Tulip</string>
+    <string name="tulips">Tulips</string>
+    <string name="rose">Rose</string>
+    <string name="roses">Roses</string>
+    <string name="daisy">Daisy</string>
+    <string name="daisies">Daisies</string>
+    <string name="lavender">Lavender</string>
+    <string name="lavenders">Lavenders</string>
+    <string name="next">next</string>
+    <string name="cancel">Cancel</string>
+    <string name="order_flowers">Order Flowers</string>
+    <string name="buy_flowers">Buy flowers</string>
+    <string name="flowers">Flowers</string>
+    <string name="count">Count</string>
+    <string name="price">Price</string>
+    <string name="about_us">About us</string>
+    <string name="about_us_info">We are a selling fresh flowers collected from over 16,000 farmers to more than 90 countries around the globe. Currently, our customers can by tulips, roses, daisies and lavenders.</string>
+    <string name="back">BACK</string>
+    <string name="number_of_flowers">Choose the number of %1$s</string>
+    <string name="add_flowers">Add more flowers</string>
+    <string name="decrement">-</string>
+    <string name="increment">+</string>
+    <string name="total">Total Price : $ %1$d</string>
+    <string name="place_order">Place Order</string>
+</resources>

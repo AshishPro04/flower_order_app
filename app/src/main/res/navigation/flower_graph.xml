@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/flower_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.flowera.StartFragment"
+        android:label="StartFragment" >
+        <action
+            android:id="@+id/action_startFragment_to_chooseFragment"
+            app:destination="@id/chooseFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseFragment"
+        android:name="com.example.flowera.ChooseFragment"
+        android:label="ChooseFragment" >
+        <action
+            android:id="@+id/action_chooseFragment_to_flowerCountFragment"
+            app:destination="@id/flowerCountFragment" />
+        <action
+            android:id="@+id/action_chooseFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/flowerCountFragment"
+        android:name="com.example.flowera.FlowerCountFragment"
+        android:label="@string/add_flowers">
+        <action
+            android:id="@+id/action_flowerCountFragment_self"
+            app:destination="@id/flowerCountFragment" />
+        <action
+            android:id="@+id/action_flowerCountFragment_to_flowerOrderFragment"
+            app:destination="@id/flowerOrderFragment" />
+        <action
+            android:id="@+id/action_flowerCountFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment" />
+        <action
+            android:id="@+id/action_flowerCountFragment_to_startFragment2"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/flowerOrderFragment"
+        android:name="com.example.flowera.FlowerOrderFragment"
+        android:label="@string/order_flowers">
+        <action
+            android:id="@+id/action_flowerOrderFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.flowera.AboutUsFragment"
+        android:label="@string/about_us">
+        <action
+            android:id="@+id/action_aboutUsFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

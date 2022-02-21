@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.flowera.FlowerViewModel" />
+        <variable
+            name="flowerOrderFragment"
+            type="com.example.flowera.FlowerOrderFragment" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/order_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/check_flower_top_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/order_summary"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:background="#6638B6"
+                android:divider="@color/material_dynamic_tertiary30"
+                android:elevation="2dp"
+                android:outlineProvider="paddedBounds"
+                android:padding="@dimen/table_row_padding"
+                android:shadowColor="@color/purple_500"
+                android:shadowDx="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="@string/flowers" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="@string/count" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="@string/price" />
+            </TableRow>
+
+            <TableRow android:layout_width="match_parent"
+                android:padding="@dimen/table_row_padding">
+
+                <TextView
+                    android:id="@+id/tulip_name"
+                    android:text="@string/tulip" />
+
+                <TextView
+                    android:id="@+id/tulip_count"
+                    android:text="@{viewModel.tulipCount.toString()}" />
+
+                <TextView
+                    android:id="@+id/tulip_price"
+                    android:text="@{String.valueOf(viewModel.tulipPrice)}" />
+            </TableRow>
+
+            <TableRow android:padding="@dimen/table_row_padding">
+
+                <TextView
+                    android:id="@+id/rose_name"
+                    android:text="@string/rose" />
+
+                <TextView
+                    android:id="@+id/rose_count"
+                    android:text="@{viewModel.roseCount.toString()}" />
+
+                <TextView
+                    android:id="@+id/rose_price"
+                    android:text="@{String.valueOf(viewModel.rosePrice)}" />
+            </TableRow>
+            <TableRow android:padding="@dimen/table_row_padding">
+                <TextView
+                    android:id="@+id/daisy_name"
+                    android:text="@string/daisy" />
+                <TextView android:id="@+id/daisy_count"
+                    android:text="@{viewModel.daisyCount.toString()}" />
+                <TextView android:id="@+id/daisy_price"
+                    android:text="@{String.valueOf(viewModel.daisyPrice)}" />
+            </TableRow>
+
+            <TableRow android:padding="@dimen/table_row_padding">
+                <TextView android:id="@+id/lavender_name"
+                    android:text="@string/lavender" />
+                <TextView android:id="@+id/lavender_count"
+                    android:text="@{viewModel.lavenderCount.toString()}"/>
+                <TextView android:id="@+id/lavender_price"
+                    android:text="@{String.valueOf(viewModel.lavenderPrice)}"/>
+            </TableRow>
+            <TextView android:id="@+id/total"
+                android:text="@{@string/total(viewModel.totalPrice)}"
+                android:gravity="right"/>
+        </TableLayout>
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:onClick="@{() -> flowerOrderFragment.cancelOrder()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/order_button"
+            android:layout_margin="@dimen/layout_margin"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <Button
+            android:id="@+id/order_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/place_order"
+            android:onClick="@{() -> flowerOrderFragment.sendOrder()}"
+            android:layout_margin="@dimen/layout_margin"
+            app:layout_constraintStart_toEndOf="@id/cancel_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
